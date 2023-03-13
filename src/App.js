@@ -4,9 +4,10 @@ import "react-notifications/lib/notifications.css";
 import "react-loading-skeleton/dist/skeleton.css";
 import Dashboard from "./components/Products";
 import Organization from "./components/Organization";
-import "./App.css";
+import "./App.scss";
 import Orders from "./components/Orders";
 import { ItemsContext } from "./components/ItemsContext/ItemsContext";
+import Login from "./components/Auth/Login";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -27,6 +28,7 @@ function App() {
       }}
     >
       <Routes>
+        <Route path="/" element={<Login />} />
         <Route path="/products" element={<Dashboard />} />
         <Route path="/organizations" element={<Organization />} />
         <Route path="/orders" element={<Orders />} />

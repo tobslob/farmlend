@@ -15,9 +15,7 @@ export const createItem = async (
     let item;
     const id = requestBody?.id;
     const clonedItems = [...items];
-    const notificationText = !!id
-      ? "Product updated successfully"
-      : "Product created successfully";
+    const notificationText = !!id ? "Update success" : "Create success";
     let values = requestBody;
     if (url === "orders") {
       const { product, volume, type } = requestBody;
@@ -47,6 +45,9 @@ export const createItem = async (
     Notification("success", notificationText);
     close();
   } catch (err) {
+    if (err?.response.data.message === "name must be unique") {
+      return Notification("error", "Name exists");
+    }
     Notification("error", "An error occured");
     setLoading(false);
   }

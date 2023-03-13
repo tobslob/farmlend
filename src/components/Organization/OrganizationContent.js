@@ -8,7 +8,7 @@ import { ItemsContext } from "../ItemsContext/ItemsContext";
 import "../Products/index.scss";
 
 const OrganizationContent = ({ setInitialOrganizationValues }) => {
-  const { loading, setLoading, setOrganizations, organizations } =
+  const { loading, setLoading, setOrganizations, organizations, products } =
     useContext(ItemsContext);
   const navigate = useNavigate();
 

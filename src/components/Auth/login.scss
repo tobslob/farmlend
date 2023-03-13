@@ -1,0 +1,54 @@
+.login-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+.login-form {
+    background-color: white;
+    padding: 20px 50px;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    div {
+        padding-bottom: 30px;
+        label {
+            font-family: Arial;
+            font-size: 85%;
+            font-weight: bold;
+            color: rgb(85, 78, 78);
+          }
+        input {
+            width: 100%;
+            padding: 15px 15px;
+            margin: 5px 0;
+            border: 1px solid rgb(194, 189, 189);
+            border-radius: 4px;
+            box-sizing: border-box;
+          }
+      }
+  }
+
+  label[for="checkbox"] {
+    text-decoration: underline;
+    font-family: Arial;
+    font-size: 85%;
+  }
+
+  .login-button {
+    width: 100%;
+    font-weight: bold;
+    background-color: #61d116;
+    color: white;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 4px;
+  }
+  button:hover {
+    background-color: green;
+  }
+  label[for="checkbox"]:hover {
+    color: blue;
+  }
+}

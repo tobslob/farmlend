@@ -12,7 +12,7 @@ const Notification = (type, message) => {
       NotificationManager.warning(message, 3000);
       break;
     case "error":
-      NotificationManager.error(message, 5000, () => {});
+      NotificationManager.error(message);
       break;
     default:
       Notification.error("");
