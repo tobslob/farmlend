@@ -53,16 +53,30 @@ export const createItem = async (
   }
 };
 
-export const deleteItem = async (id, items, setItems, url) => {
-  try {
-    const { data } = await axiosInstance.delete(`/${url}/${id}`);
-    if (data.status === "success") {
-      const filteredItems = items.filter((item) => item.id !== id);
-      setItems(filteredItems);
-      Notification("success", "Product deleted");
-    }
-  } catch (err) {
-    Notification("error", "An error occured");
-    return
-  }
+export const deleteItem = async (id, items, setItems, url, setLoading) => {
+  setLoading(true);
+  axiosInstance
+    .delete(`/${url}/${id}`)
+    .then(({ data }) => {
+      if (data.status === "success") {
+        const filteredItems = items.filter((item) => item.id !== id);
+        setItems(filteredItems);
+        setLoading(false);
+        Notification("success", "Product deleted");
+      }
+    })
+    .catch((err) => {
+      console.log({ err });
+      setLoading(false);
+      if (
+        err?.response?.data.message ===
+        "you can't delete a product with pending orders"
+      ) {
+        return Notification(
+          "error",
+          "You can't delete a product with pending orders"
+        );
+      }
+    return Notification("error", "An error occured");
+  });
 };

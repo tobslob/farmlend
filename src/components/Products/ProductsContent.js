@@ -21,8 +21,7 @@ const MainContent = memo(({ setInitialProductValues }) => {
   }, [setProducts, setLoading]);
 
   const deleteProduct = (id) => {
-    const deleteRequest = deleteItem(id, products, setProducts, "products");
-    return deleteRequest;
+    deleteItem(id, products, setProducts, "products", setLoading);
   };
 
   useEffect(() => {
