@@ -21,7 +21,7 @@ const OrganizationContent = ({ setInitialOrganizationValues }) => {
   }, [setLoading, setOrganizations]);
 
   const deleteOrganization = (id) => {
-    const deleteRequest = deleteItem(id, organizations, setOrganizations, 'organizations');
+    const deleteRequest = deleteItem(id, organizations, setOrganizations, 'organizations', setLoading);
     return deleteRequest;
   };
 

@@ -30,7 +30,7 @@ const OrderContent = ({ setInitialOrdersValues }) => {
   }, [setProducts, setLoading]);
 
   const deleteOrder = (id) => {
-    const deleteRequest = deleteItem(id, orders, setOrders, 'organizations');
+    const deleteRequest = deleteItem(id, orders, setOrders, 'organizations', setLoading);
     return deleteRequest;
   };
 
