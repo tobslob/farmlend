@@ -1,46 +1,46 @@
 export const sideBarItems = [
   {
-    name: "Products",
+    name: 'Products',
     links: [
       {
-        name: "Create",
-        pathname: "/products",
-        state: "createProduct",
+        name: 'Create',
+        pathname: '/products',
+        state: 'createProduct',
       },
       {
-        name: "All Products",
-        pathname: "/products",
-        state: "products",
+        name: 'All Products',
+        pathname: '/products',
+        state: 'products',
       },
     ],
   },
   {
-    name: "Organization Management",
+    name: 'Organization Management',
     links: [
       {
-        name: "Create",
-        pathname: "/organizations",
-        state: "createOrganization",
+        name: 'Create',
+        pathname: '/organizations',
+        state: 'createOrganization',
       },
       {
-        name: "All Organizations",
-        pathname: "/organizations",
-        state: "organizations",
+        name: 'All Organizations',
+        pathname: '/organizations',
+        state: 'organizations',
       },
     ],
   },
   {
-    name: "Orders",
+    name: 'Orders',
     links: [
       {
-        name: "Create",
-        pathname: "/orders",
-        state: "createOrder",
+        name: 'Create',
+        pathname: '/orders',
+        state: 'createOrder',
       },
       {
-        name: "All Orders",
-        pathname: "/orders",
-        state: "orders",
+        name: 'All Orders',
+        pathname: '/orders',
+        state: 'orders',
       },
       // {
       //   name: "Seller Orders",

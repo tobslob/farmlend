@@ -1,21 +1,21 @@
-import { NotificationManager } from "react-notifications";
+import { NotificationManager } from 'react-notifications';
 
 const Notification = (type, message) => {
   switch (type) {
-    case "info":
+    case 'info':
       NotificationManager.info(message);
       break;
-    case "success":
+    case 'success':
       NotificationManager.success(message);
       break;
-    case "warning":
+    case 'warning':
       NotificationManager.warning(message, 3000);
       break;
-    case "error":
+    case 'error':
       NotificationManager.error(message);
       break;
     default:
-      Notification.error("");
+      Notification.error('');
   }
 };
 

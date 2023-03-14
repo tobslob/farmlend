@@ -1,8 +1,8 @@
-import React from "react";
-import { NotificationContainer } from "react-notifications";
-import "./Dashboard.scss";
-import Sidebar from "./SideBar";
-import Header from "./Header";
+import React from 'react';
+import { NotificationContainer } from 'react-notifications';
+import './Dashboard.scss';
+import Sidebar from './SideBar';
+import Header from './Header';
 
 function DashboardLayout({ children }) {
   return (
@@ -11,7 +11,7 @@ function DashboardLayout({ children }) {
       <Sidebar />
       <Header />
 
-      <main className="main-section">{children}</main>
+      <main className='main-section'>{children}</main>
     </>
   );
 }

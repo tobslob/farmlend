@@ -1,32 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import DashboardLayout from "../DashBoardLayout/DashboardLayout";
-import OrganizationContent from "../Organization/OrganizationContent";
-import CreateOrganization from "./CreateOrganization";
-import "../Products/index.scss";
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import DashboardLayout from '../DashBoardLayout/DashboardLayout';
+import OrganizationContent from '../Organization/OrganizationContent';
+import CreateOrganization from './CreateOrganization';
+import '../Products/index.scss';
 
 const Organizations = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const initialValues = {
-    name: "",
-    type: "",
+    name: '',
+    type: '',
   };
   const [show, setShow] = useState(false);
-  const [initialOrganizationValues, setInitialOrganizationValues] =
-    useState(initialValues);
+  const [initialOrganizationValues, setInitialOrganizationValues] = useState(initialValues);
 
   const handleClose = () => {
     setInitialOrganizationValues(initialValues);
-    navigate({ state: "" });
+    navigate({ state: '' });
     setShow(false);
   };
 
   useEffect(() => {
-    if (
-      location.state &&
-      ["createOrganization", "editOrganization"].includes(location.state)
-    ) {
+    if (location.state && ['createOrganization', 'editOrganization'].includes(location.state)) {
       setShow(true);
     } else {
       setShow(false);
@@ -35,9 +31,7 @@ const Organizations = () => {
 
   return (
     <DashboardLayout>
-      <OrganizationContent
-        setInitialOrganizationValues={setInitialOrganizationValues}
-      />
+      <OrganizationContent setInitialOrganizationValues={setInitialOrganizationValues} />
       <CreateOrganization
         isOpen={show}
         close={handleClose}

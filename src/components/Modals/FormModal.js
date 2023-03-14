@@ -1,8 +1,8 @@
-import React from "react";
-import Modal from "react-modal";
-import { customStyles } from "../CustomStyle";
+import React from 'react';
+import Modal from 'react-modal';
+import { customStyles } from '../CustomStyle';
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root');
 
 const FormModal = ({ isOpen, close, children }) => {
   return (

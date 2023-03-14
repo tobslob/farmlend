@@ -1,23 +1,16 @@
-import { axiosInstance } from "../constants";
-import Notification from "./Notification";
+import { axiosInstance } from '../constants';
+import Notification from './Notification';
 
-export const createItem = async (
-  requestBody,
-  items,
-  setLoading,
-  setItems,
-  close,
-  url
-) => {
+export const createItem = async (requestBody, items, setLoading, setItems, close, url) => {
   setLoading(true);
   try {
     let data;
     let item;
     const id = requestBody?.id;
     const clonedItems = [...items];
-    const notificationText = !!id ? "Update success" : "Create success";
+    const notificationText = !!id ? 'Update success' : 'Create success';
     let values = requestBody;
-    if (url === "orders") {
+    if (url === 'orders') {
       const { product, volume, type } = requestBody;
       values = {
         type,
@@ -27,7 +20,7 @@ export const createItem = async (
     if (!!id) {
       data = await axiosInstance.patch(`/${url}/${id}`, values);
       if (data?.data.data) {
-        item = data?.data.data;
+        item = data?.data?.data;
         const updatedItemIndex = items.findIndex((item) => item.id === id);
         clonedItems.splice(updatedItemIndex, 1, item);
         setItems(clonedItems);
@@ -42,13 +35,17 @@ export const createItem = async (
     }
 
     setLoading(false);
-    Notification("success", notificationText);
+    Notification('success', notificationText);
     close();
   } catch (err) {
-    if (err?.response.data.message === "name must be unique") {
-      return Notification("error", "Name exists");
+    if (err?.response?.data?.message === 'name must be unique') {
+      return Notification('error', 'Name exists');
     }
-    Notification("error", "An error occured");
+
+    if (err?.response?.data?.message.includes("product with ID:")) {
+      return Notification('error', 'Order volume is higher than product volume')
+    }
+    Notification('error', 'An error occured');
     setLoading(false);
   }
 };
@@ -58,11 +55,11 @@ export const deleteItem = async (id, items, setItems, url, setLoading) => {
   axiosInstance
     .delete(`/${url}/${id}`)
     .then(({ data }) => {
-      if (data.status === "success") {
+      if (data.status === 'success') {
         const filteredItems = items.filter((item) => item.id !== id);
         setItems(filteredItems);
         setLoading(false);
-        Notification("success", "Product deleted");
+        Notification('success', 'Item deleted');
       }
     })
     .catch((err) => {

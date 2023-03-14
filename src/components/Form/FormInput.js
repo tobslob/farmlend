@@ -1,19 +1,20 @@
-import { useContext } from "react";
-import { FormContext } from "./Form";
-import "./form.scss";
+import React from 'react';
+import { useContext } from 'react';
+import { FormContext } from './Form';
+import './form.scss';
 
 function FormInput(props) {
-  const { label, type = "text", name, options = [] } = props;
+  const { label, type = 'text', name, options = [] } = props;
 
   const formContext = useContext(FormContext);
   const { form, handleFormChange } = formContext;
 
   return (
-    <div className="form-input">
+    <div className='form-input'>
       <label>{label}</label>
-      {type === "select" ? (
+      {type === 'select' ? (
         <select name={name} value={form[name]} onChange={handleFormChange}>
-          <option value="" selected="selected">
+          <option value='' selected='selected'>
             --Select an option--
           </option>
           {options.map((option, index) => (
@@ -23,12 +24,7 @@ function FormInput(props) {
           ))}
         </select>
       ) : (
-        <input
-          type={type}
-          name={name}
-          value={form[name]}
-          onChange={handleFormChange}
-        />
+        <input type={type} name={name} value={form[name]} onChange={handleFormChange} />
       )}
     </div>
   );

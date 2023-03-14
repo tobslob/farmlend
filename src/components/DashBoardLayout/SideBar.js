@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { sideBarItems } from "./SideBarItems";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { sideBarItems } from './SideBarItems';
 function Sidebar() {
   return (
-    <div className="sidebar-container">
+    <div className='sidebar-container'>
       <h2>Farm Lend</h2>
-      <div className="list-section">
+      <div className='list-section'>
         {sideBarItems.map((item, index) => (
           <div key={index}>
             <strong>{item.name}</strong>
