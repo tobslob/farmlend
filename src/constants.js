@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const URL = "https://farmlend-api.onrender.com/api/v1";
+const URL = "http://farmlendz-2009802627.eu-north-1.elb.amazonaws.com/api/v1"
 const token = localStorage.getItem("appUserToken");
 
 export const axiosInstance = axios.create({

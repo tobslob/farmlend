@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Spin } from "antd";
 import "./form.scss";
@@ -12,6 +12,10 @@ const antIcon = (
 
 function Form({ initialValues, submit, buttonText, loading, children }) {
   const [form, setForm] = useState(initialValues);
+  const disableBtn = useMemo(
+    () => Object.keys(form).map((key) => form[key]),
+    [form]
+  ).every((field) => !!field);
   const handleFormChange = (event) => {
     const { name, value } = event.target;
     setForm({
@@ -32,8 +36,12 @@ function Form({ initialValues, submit, buttonText, loading, children }) {
       </FormContext.Provider>
 
       <div className="button">
-        <button type="button" disabled={loading} onClick={() => submit(form)}>
-          {buttonText} {loading && <Spin indicator={antIcon} />}
+        <button
+          type="button"
+          disabled={loading || !disableBtn}
+          onClick={() => submit(form)}
+        >
+          {buttonText} {loading && disableBtn && <Spin indicator={antIcon} />}
         </button>
       </div>
     </form>

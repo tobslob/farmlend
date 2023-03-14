@@ -13,7 +13,7 @@ function FormInput(props) {
       <label>{label}</label>
       {type === "select" ? (
         <select name={name} value={form[name]} onChange={handleFormChange}>
-          <option value="Select an option" disabled>
+          <option value="" selected="selected">
             --Select an option--
           </option>
           {options.map((option, index) => (

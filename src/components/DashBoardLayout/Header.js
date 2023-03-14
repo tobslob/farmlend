@@ -1,10 +1,13 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { BellFilled } from "@ant-design/icons";
 
 function TopHeader() {
   const route = useLocation();
   const formatedPathName = route.pathname.replace("/", "");
+  const logOut = () => {
+    localStorage.removeItem("appUserToken");
+    window.location.href = "/";
+  };
   const headerTextOptions = {
     products: "Products",
     organizations: "Organizations",
@@ -18,15 +21,9 @@ function TopHeader() {
       </div>
 
       <div className="right-con">
-        <div className="nots" style={{ cursor: "pointer" }}>
-          <BellFilled
-            className="bell"
-            style={{
-              fontSize: "1.5em",
-              color: "#3B86FF",
-              width: "20px",
-            }}
-          />
+        <div style={{ cursor: "pointer", color: "#4f4bf5", 
+        fontSize: "18px", fontWeight: 700, margin: "0 0 10px"}} onClick={logOut}>
+         Logout
         </div>
       </div>
     </div>
