@@ -39,10 +39,12 @@ export const createItem = async (requestBody, items, setLoading, setItems, close
     close();
   } catch (err) {
     if (err?.response?.data?.message === 'name must be unique') {
+      setLoading(false);
       return Notification('error', 'Name exists');
     }
 
     if (err?.response?.data?.message.includes("product with ID:")) {
+      setLoading(false);
       return Notification('error', 'Order volume is higher than product volume')
     }
     Notification('error', 'An error occured');
